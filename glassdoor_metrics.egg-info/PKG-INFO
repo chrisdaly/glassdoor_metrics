@@ -1,0 +1,20 @@
+Metadata-Version: 1.0
+Name: glassdoor-metrics
+Version: 0.3
+Summary: Extracts all metrics on a given company's glassdoor page using the webpage itself and the unofficial API.
+Home-page: https://github.com/w2ogroup/Notebooks/tree/master/Glassdoor%20MReviews
+Author: Chris Daly
+Author-email: cdaly@w2ogroup.com
+License: MIT
+Description: Glassdoor Metrics
+        --------
+        
+        Basic usage::
+        	
+            >>> from glassdoor_metrics import Metrics
+            >>>
+            >>> company_id = '16'
+            >>> file_path = "./{}.xlsx".format("test")
+            >>> data = metrics.data
+            >>> metrics.output_data(data, file_path)
+Platform: UNKNOWN

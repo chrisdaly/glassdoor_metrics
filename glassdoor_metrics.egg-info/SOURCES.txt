@@ -1,0 +1,13 @@
+MANIFEST.in
+README.rst
+setup.py
+glassdoor_metrics/__init__.py
+glassdoor_metrics/metrics.py
+glassdoor_metrics/metrics_api.py
+glassdoor_metrics/metrics_webpage.py
+glassdoor_metrics.egg-info/PKG-INFO
+glassdoor_metrics.egg-info/SOURCES.txt
+glassdoor_metrics.egg-info/dependency_links.txt
+glassdoor_metrics.egg-info/not-zip-safe
+glassdoor_metrics.egg-info/requires.txt
+glassdoor_metrics.egg-info/top_level.txt
