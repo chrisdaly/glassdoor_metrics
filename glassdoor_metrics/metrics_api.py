@@ -12,6 +12,7 @@ class MetricsAPI:
         self.company_id = company_id
         self.url = "https://www.glassdoor.com/api/employer/{}-rating.htm?".format(company_id)
         self.headers = {"user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36"}
+        self.rate_limit = 1
         self.params_filter = {"filter.defaultEmploymentStatuses": "false", "filter.defaultLocation": "false"}
         self.employees_pasts = ["true", "false"]
         self.employee_types = ["REGULAR", "CONTRACT", "PART_TIME", "INTERN", "FREELANCE"]
@@ -48,6 +49,7 @@ class MetricsAPI:
         '''
         if params:
             self.params_filter.update(params)
+        time.sleep(self.rate_limit)
         response = requests.get(self.url, headers=self.headers, params=self.params_filter)
         print("{} \t {}".format(response.status_code, response.url))
 

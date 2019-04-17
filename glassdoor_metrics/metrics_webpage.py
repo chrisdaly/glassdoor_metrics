@@ -15,8 +15,10 @@ class MetricsWebPage:
         self.params_filter = {"filter.defaultEmploymentStatuses": "false", "filter.defaultLocation": "false"}
         self.employees_pasts = ["true", "false"]
         self.employee_types = ["REGULAR", "CONTRACT", "PART_TIME", "INTERN", "FREELANCE"]
+        self.rate_limit = 1
 
     def get_soup(self):
+        time.sleep(self.rate_limit)
         response = requests.get(self.url, params=self.params_filter, headers=self.headers)
         print("{} \t {}".format(response.status_code, response.url))
 
@@ -37,7 +39,8 @@ class MetricsWebPage:
         match = re.search(regex, script, re.MULTILINE)
         if match:
             json_text = match.group(1)
-            json_text = json_text.replace("'", '"')
+            json_text = json_text.replace("'", '"').replace('  ', '').replace('[,', '[')
+            print(json_text)
             json_text = json.loads(json_text)
             return json_text
         else:
